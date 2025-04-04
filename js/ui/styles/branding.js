@@ -1,0 +1,169 @@
+/**
+ * Branding styles for Control Freak
+ * Defines styles for logos, headers, and branded elements
+ */
+
+/**
+ * Applies branding styles to the document
+ */
+export function applyBrandingStyles() {
+    const styleElement = document.createElement('style');
+    styleElement.id = 'controlfreak-branding-styles';
+    styleElement.textContent = `
+        /* Logo styling */
+        .cf-logo {
+            font-family: var(--cf-brand-font);
+            font-weight: 700;
+            color: var(--cf-text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .cf-logo-text {
+            font-size: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            position: relative;
+        }
+        
+        .cf-logo-icon {
+            color: var(--cf-brand-primary);
+            font-size: 24px;
+        }
+        
+        .cf-logo-highlight {
+            color: var(--cf-brand-primary);
+        }
+        
+        /* Header with branding */
+        #controller-mapping-header {
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: var(--cf-bg-primary);
+            border-bottom: 1px solid var(--cf-border-color);
+        }
+        
+        #controller-mapping-header h2 {
+            flex: 1;
+            margin: 0;
+            font-family: var(--cf-brand-font);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Brand tagline */
+        .cf-tagline {
+            font-family: var(--cf-brand-font);
+            font-size: 14px;
+            color: var(--cf-text-secondary);
+            margin-left: 10px;
+            font-style: italic;
+        }
+        
+        /* About panel branding */
+        #about-panel {
+            font-family: var(--cf-brand-font);
+        }
+        
+        #about-panel .about-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        #about-panel .cf-logo {
+            font-size: 32px;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        #about-panel .cf-tagline {
+            text-align: center;
+            font-size: 16px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+        
+        /* Brand color accents in the UI */
+        .controller-mapping-tab.active {
+            color: var(--cf-brand-primary);
+            border-bottom-color: var(--cf-brand-primary);
+        }
+        
+        /* Developer links section */
+        .developer-links {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background: var(--cf-bg-overlay-light);
+            border: 1px solid var(--cf-border-light);
+        }
+        
+        .developer-links h3 {
+            color: var(--cf-brand-primary);
+            margin-top: 0;
+        }
+        
+        .developer-links a {
+            color: var(--cf-link-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .developer-links a:hover {
+            color: var(--cf-brand-primary);
+        }
+        
+        /* Project cards */
+        .project-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+        
+        .project-card {
+            background: var(--cf-bg-secondary);
+            border: 1px solid var(--cf-border-color);
+            border-radius: 8px;
+            padding: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-color: var(--cf-brand-primary);
+        }
+        
+        .project-card h4 {
+            margin-top: 0;
+            color: var(--cf-brand-primary);
+        }
+        
+        .project-card p {
+            font-size: 14px;
+            color: var(--cf-text-secondary);
+        }
+        
+        .project-card a {
+            color: var(--cf-link-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .project-card a:hover {
+            color: var(--cf-brand-primary);
+        }
+    `;
+    
+    // Add to document if not already present
+    if (!document.getElementById('controlfreak-branding-styles')) {
+        document.head.appendChild(styleElement);
+    }
+} 
