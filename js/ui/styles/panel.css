@@ -1,0 +1,656 @@
+/* Panel styles for Control Freak UI */
+
+#controller-mapping-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--cf-bg-primary, #2c2c2c);
+    border: 1px solid var(--cf-border-color, #555);
+    border-radius: 8px;
+    width: 85%;
+    max-width: 950px;
+    max-height: 85vh;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    color: var(--cf-text-primary, #eee);
+    font-family: var(--cf-brand-font, sans-serif);
+    box-shadow: 0 5px 25px var(--cf-bg-overlay, rgba(0,0,0,0.5));
+    overflow: hidden;
+}
+
+#controller-mapping-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: linear-gradient(90deg, var(--cf-bg-tertiary, #222), var(--cf-brand-primary, #4c8eda) 250%);
+    border-bottom: 1px solid var(--cf-border-color, #555);
+}
+
+#controller-mapping-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+#controller-mapping-close {
+    background: none;
+    border: none;
+    color: var(--cf-text-primary, #eee);
+    font-size: 22px;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+#controller-mapping-close:hover {
+    background-color: var(--cf-bg-overlay-light, rgba(255,255,255,0.1));
+    transform: rotate(90deg);
+}
+
+#controller-mapping-tabs {
+    display: flex;
+    background-color: var(--cf-bg-secondary, #333);
+    border-bottom: 1px solid var(--cf-border-color, #555);
+    padding: 0 15px;
+}
+
+.controller-mapping-tab {
+    padding: 12px 20px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    color: var(--cf-text-secondary, #bbb); /* Added default color */
+}
+
+.controller-mapping-tab:hover {
+    background-color: var(--cf-bg-overlay-light, rgba(255,255,255,0.1));
+    color: var(--cf-brand-primary, #4c8eda);
+}
+
+.controller-mapping-tab.active {
+    border-bottom-color: var(--cf-brand-primary, #4c8eda);
+    color: var(--cf-brand-primary, #4c8eda);
+    font-weight: 600;
+}
+
+#controller-mapping-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: var(--cf-bg-primary, #2c2c2c); /* Ensure content bg */
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* Controller sections styling */
+.controller-section {
+    margin-bottom: 30px;
+}
+
+.cf-section-header {
+    font-size: 18px;
+    margin: 0 0 15px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--cf-border-light, #666);
+    color: var(--cf-brand-primary, #4c8eda);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cf-section-icon {
+    font-size: 20px;
+}
+
+.cf-loading {
+    text-align: center;
+    padding: 30px;
+    color: var(--cf-text-secondary, #bbb);
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.cf-loading-icon {
+    font-size: 32px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; transform: scale(0.95); }
+    50% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 0.6; transform: scale(0.95); }
+}
+
+.cf-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.controller-card {
+    background-color: var(--cf-bg-secondary, #333);
+    border-radius: 6px;
+    padding: 15px;
+    box-shadow: 0 2px 8px var(--cf-bg-overlay-dark, rgba(0,0,0,0.4));
+    transition: all 0.2s;
+    border: 1px solid var(--cf-border-color, #555);
+    display: flex; /* Added for flex layout */
+    flex-direction: column; /* Added for flex layout */
+}
+
+.controller-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--cf-bg-overlay, rgba(0,0,0,0.5));
+    border-color: var(--cf-brand-primary, #4c8eda);
+}
+
+.controller-card-header {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.controller-card-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70%; /* Adjust as needed */
+}
+
+.controller-status {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.controller-status.connected {
+    background-color: rgba(0, 128, 0, 0.15);
+    color: var(--cf-status-success, #5cb85c);
+    border: 1px solid rgba(0, 128, 0, 0.2);
+}
+
+.controller-status.disconnected {
+    background-color: rgba(128, 0, 0, 0.15);
+    color: var(--cf-status-error, #e54d4d);
+    border: 1px solid rgba(128, 0, 0, 0.2);
+}
+
+.controller-status.detected {
+    background-color: rgba(230, 180, 80, 0.15);
+    color: var(--cf-status-warning, #f0ad4e);
+    border: 1px solid rgba(230, 180, 80, 0.2);
+}
+
+.device-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 8px;
+    background-color: var(--cf-bg-overlay-light, rgba(255,255,255,0.1));
+    border-radius: 4px;
+    border: 1px solid var(--cf-border-light, #666);
+    font-size: 14px;
+}
+
+.device-type {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.device-type-icon {
+    font-size: 16px;
+}
+
+.device-specs {
+    display: flex;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--cf-text-secondary, #bbb);
+}
+
+.controller-controls {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--cf-border-light, #666);
+    max-height: 150px; /* Limit height */
+    overflow-y: auto; /* Add scroll */
+}
+
+.controller-controls h4 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cf-text-secondary, #bbb);
+}
+
+.controller-controls ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.controller-controls li {
+    background-color: var(--cf-bg-tertiary, #222);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid var(--cf-border-color, #555);
+}
+
+.controller-controls li .control-icon {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.profile-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: var(--cf-bg-secondary, #333);
+    border-radius: 6px;
+    border: 1px solid var(--cf-border-color, #555);
+}
+
+.profile-selector label {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.profile-selector select {
+    padding: 6px 10px;
+    border-radius: 4px;
+    background-color: var(--cf-bg-primary, #2c2c2c);
+    color: var(--cf-text-primary, #eee);
+    border: 1px solid var(--cf-border-light, #666);
+    flex-grow: 1; /* Allow select to grow */
+    font-size: 14px;
+}
+
+.profile-actions button {
+    padding: 6px 12px;
+    font-size: 13px;
+    margin-left: 5px;
+    background-color: var(--cf-bg-tertiary, #222);
+    border: 1px solid var(--cf-border-color, #555);
+    color: var(--cf-text-primary, #eee);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.profile-actions button:hover {
+    background-color: var(--cf-bg-hover, #4a4a4a);
+    border-color: var(--cf-brand-primary, #4c8eda);
+}
+
+.profile-actions button.cf-danger:hover {
+     background-color: var(--cf-accent-red-dark, #b03c3c);
+     border-color: var(--cf-accent-red, #e54d4d);
+}
+
+.mappings-list {
+    margin-top: 15px;
+    /* Styles for the list itself if needed */
+}
+
+/* Generic Button Styles (if not covered elsewhere) */
+.cf-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    font-family: var(--cf-brand-font, sans-serif);
+    font-size: 14px;
+}
+
+.cf-button-primary {
+    background-color: var(--cf-brand-primary, #4c8eda);
+    color: white;
+}
+.cf-button-primary:hover {
+    background-color: var(--cf-brand-primary-dark, #3a70b2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.cf-button-secondary {
+    background-color: var(--cf-bg-secondary, #333);
+    color: var(--cf-text-primary, #eee);
+    border: 1px solid var(--cf-border-color, #555);
+}
+.cf-button-secondary:hover {
+    background-color: var(--cf-bg-hover, #4a4a4a);
+    border-color: var(--cf-text-secondary, #bbb);
+}
+
+.cf-button-danger {
+    background-color: var(--cf-accent-red, #e54d4d);
+    color: white;
+}
+.cf-button-danger:hover {
+    background-color: var(--cf-accent-red-dark, #b03c3c);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.cf-input {
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: var(--cf-bg-input, #222);
+    color: var(--cf-text-primary, #eee);
+    border: 1px solid var(--cf-border-light, #666);
+    font-size: 14px;
+    font-family: var(--cf-brand-font, sans-serif);
+}
+.cf-input:focus {
+    outline: none;
+    border-color: var(--cf-brand-primary, #4c8eda);
+    box-shadow: 0 0 0 2px var(--cf-brand-primary-light, rgba(76, 142, 218, 0.3));
+}
+
+/* Add scrollbar styling for webkit browsers */
+#controller-mapping-content::-webkit-scrollbar,
+.controller-controls::-webkit-scrollbar {
+    width: 8px;
+}
+
+#controller-mapping-content::-webkit-scrollbar-track,
+.controller-controls::-webkit-scrollbar-track {
+    background: var(--cf-bg-primary, #2c2c2c);
+    border-radius: 4px;
+}
+
+#controller-mapping-content::-webkit-scrollbar-thumb,
+.controller-controls::-webkit-scrollbar-thumb {
+    background-color: var(--cf-bg-tertiary, #222);
+    border-radius: 4px;
+    border: 2px solid var(--cf-bg-primary, #2c2c2c);
+}
+
+#controller-mapping-content::-webkit-scrollbar-thumb:hover,
+.controller-controls::-webkit-scrollbar-thumb:hover {
+    background-color: var(--cf-border-color, #555);
+}
+
+/* Firefox scrollbar styling */
+#controller-mapping-content,
+.controller-controls {
+    scrollbar-width: thin;
+    scrollbar-color: var(--cf-bg-tertiary, #222) var(--cf-bg-primary, #2c2c2c);
+}
+
+/* --- UI Commands Tab Styles (Refined) --- */
+
+.commands-container {
+    /* Match overall content padding */
+}
+
+.commands-panel-header {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--cf-border-light);
+}
+
+.commands-panel-header h3 {
+    margin: 0 0 5px 0;
+    color: var(--cf-brand-primary);
+    font-weight: 600;
+    font-size: 18px; /* Consistent section header */
+}
+
+.commands-panel-header p {
+    margin: 0;
+    color: var(--cf-text-secondary);
+    font-size: 14px;
+}
+
+.command-category-section {
+    margin-bottom: 25px;
+}
+
+.command-category-section .category-header {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--cf-text-primary);
+    margin: 0 0 12px 0; /* Increased margin */
+    padding-bottom: 8px; /* Increased padding */
+    border-bottom: 1px solid var(--cf-border-color); /* Solid, darker border */
+}
+
+.command-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.command-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px; /* Increased padding */
+    background-color: var(--cf-bg-secondary);
+    border: 1px solid var(--cf-border-color);
+    border-radius: 4px;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.command-item:hover {
+    border-color: var(--cf-brand-primary);
+    background-color: var(--cf-bg-tertiary); /* Add subtle background hover */
+}
+
+.command-info {
+    flex-grow: 1;
+    margin-right: 15px;
+    overflow: hidden;
+}
+
+.command-label {
+    font-weight: 500;
+    color: var(--cf-text-primary);
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.command-id {
+    font-size: 11px;
+    color: var(--cf-text-muted);
+    margin-top: 3px; /* Slightly more space */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.command-map-btn {
+    padding: 5px 10px; /* Slightly smaller padding */
+    background-color: var(--cf-bg-secondary); /* Match item bg */
+    border: 1px solid var(--cf-border-light);
+    color: var(--cf-text-secondary);
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600; /* Bolder */
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.command-map-btn:hover {
+    background-color: var(--cf-brand-primary); /* Orange brand color */
+    border-color: var(--cf-brand-primary);
+    color: white;
+}
+
+.no-commands {
+    color: var(--cf-text-muted);
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+    background-color: var(--cf-bg-secondary); /* Add background */
+    border-radius: 4px; /* Add radius */
+}
+
+/* --- mappingComponent.css --- */
+
+/* Mapping Component Style (main style used in panel) */
+.controller-mapping-component {
+    display: flex;
+    align-items: center;
+    /* padding: 10px; */
+    padding: 10px 15px; /* Match command item padding */
+    /* margin: 5px 0; */
+    margin: 0; /* Remove margin, rely on parent gap */
+    /* background-color: var(--cf-bg-tertiary); */
+    background-color: var(--cf-bg-secondary); /* Match command item bg */
+    border-radius: 4px;
+    /* border: 1px solid var(--cf-border-color); */
+    border: 1px solid var(--cf-border-color); /* Match command item border */
+    position: relative;
+    gap: 10px;
+    transition: border-color 0.2s, background-color 0.2s; /* Add transition */
+}
+
+/* Add hover effect like command item */
+.controller-mapping-component:hover {
+    border-color: var(--cf-brand-primary);
+    background-color: var(--cf-bg-tertiary);
+}
+
+.mapping-control-source {
+    flex: 1;
+    /* margin-right: 10px; */ /* Handled by parent gap */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Increase gap slightly */
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.mapping-target {
+     flex: 1;
+     display: flex;
+     align-items: center;
+     gap: 8px; /* Increase gap slightly */
+     overflow: hidden;
+     white-space: nowrap;
+}
+
+.mapping-icon {
+    /* margin-right: 5px; */ /* Handled by parent gap */
+    flex-shrink: 0;
+    font-size: 16px; /* Larger icon */
+    opacity: 0.9;
+    color: var(--cf-text-secondary); /* Muted icon color */
+}
+
+.mapping-name {
+    font-weight: 500; /* Match command label weight */
+    font-size: 14px; /* Match command label size */
+    color: var(--cf-text-primary); /* Ensure color */
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.mapping-arrow {
+    margin: 0 10px;
+    font-size: 16px;
+    color: var(--cf-text-muted);
+    flex-shrink: 0;
+}
+
+.mapping-type-badge {
+    padding: 3px 7px; /* Slightly larger padding */
+    background-color: var(--cf-bg-tertiary); /* Slightly darker badge */
+    border: 1px solid var(--cf-border-light); /* Add border */
+    border-radius: 3px;
+    font-size: 11px; /* Keep small */
+    margin-left: 10px;
+    flex-shrink: 0;
+    color: var(--cf-text-secondary); /* Muted text */
+    font-weight: 500;
+}
+
+.mapping-actions {
+    display: flex;
+    margin-left: auto;
+    padding-left: 15px;
+    gap: 6px; /* Slightly more gap */
+    flex-shrink: 0;
+}
+
+/* Make buttons look like command map button */
+.mapping-edit,
+.mapping-delete {
+    /* Base style similar to .command-map-btn */
+    padding: 5px 10px;
+    background-color: var(--cf-bg-secondary);
+    border: 1px solid var(--cf-border-light);
+    color: var(--cf-text-secondary);
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+/* Specific hover colors */
+.mapping-edit:hover {
+    background-color: var(--cf-accent-blue);
+    border-color: var(--cf-accent-blue);
+    color: white;
+}
+.mapping-delete:hover {
+    background-color: var(--cf-accent-red);
+    border-color: var(--cf-accent-red);
+    color: white;
+}
+
+/* Style the list container in the Mappings tab */
+#mappings-panel .mapping-list {
+     margin-top: 0; /* Remove top margin if header exists */
+     gap: 8px; /* Consistent gap from commands list */
+     padding-right: 0; /* Remove scroll padding if panel scrolls */
+}
+
+

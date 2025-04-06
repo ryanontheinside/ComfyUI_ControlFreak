@@ -1,0 +1,19 @@
+.litegraph-context-menu {
+    /* These rules might conflict/override base LiteGraph context menu styles. */
+    /* Consider using more specific selectors if needed, e.g., targeting Control Freak specific menus */
+    position: fixed; /* Usually handled by LiteGraph? Verify if needed. */
+    z-index: 10000;  /* Usually handled by LiteGraph? Verify if needed. */
+    background-color: var(--cf-bg-primary, #2c2c2c); /* Added fallback */
+    border: 1px solid var(--cf-border-color, #555); /* Added fallback */
+    border-radius: 4px;
+    box-shadow: 0 2px 8px var(--cf-bg-overlay, rgba(0,0,0,0.5)); /* Added fallback */
+}
+
+.litegraph-context-menu .menu-entry {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.litegraph-context-menu .menu-entry:hover {
+    background-color: var(--cf-bg-hover, #4a4a4a); /* Added fallback */
+}

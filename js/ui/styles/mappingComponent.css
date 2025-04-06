@@ -1,0 +1,361 @@
+/* styles/mappingComponent.css - EXACT from original JS */
+
+/* Mapping List Container */
+.mapping-list-container,
+.controller-mapping-list {
+    font-family: var(--cf-brand-font); /* Use brand font */
+    color: var(--cf-text-primary);
+    max-width: 100%;
+    /* Add some default spacing */
+    /* margin-top: 10px; */ 
+}
+
+/* Style the list shown in the Mappings tab */
+#mappings-panel .mapping-list {
+    /* Add some padding/margin if needed */
+     margin-top: 0; /* Remove top margin if header exists */
+     gap: 8px; /* Consistent gap from commands list */
+     padding-right: 0; /* Remove scroll padding if panel scrolls */
+}
+
+.mapping-list-header {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* Mapping List */
+.mapping-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Inside dialog */
+.controller-mapping-existing-content .mapping-list {
+    max-height: none;
+}
+
+/* Mapping Item - Original style */
+.mapping-item { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background-color: var(--cf-bg-secondary);
+    border-radius: 3px;
+    border: 1px solid var(--cf-border-color);
+}
+
+/* Mapping Component Style (main style used in panel) */
+.controller-mapping-component {
+    display: flex;
+    align-items: center;
+    /* padding: 10px; */
+    padding: 10px 15px; /* Match command item padding */
+    /* margin: 5px 0; */
+    margin: 0; /* Remove margin, rely on parent gap */
+    /* background-color: var(--cf-bg-tertiary); */
+    background-color: var(--cf-bg-secondary); /* Match command item bg */
+    border-radius: 4px;
+    /* border: 1px solid var(--cf-border-color); */
+    border: 1px solid var(--cf-border-color); /* Match command item border */
+    position: relative;
+    gap: 10px;
+    transition: border-color 0.2s, background-color 0.2s; /* Add transition */
+}
+
+/* Add hover effect like command item */
+.controller-mapping-component:hover {
+    border-color: var(--cf-brand-primary);
+    background-color: var(--cf-bg-tertiary);
+}
+
+.mapping-control-source {
+    flex: 1;
+    /* margin-right: 10px; */ /* Handled by parent gap */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Increase gap slightly */
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.mapping-target {
+     flex: 1;
+     display: flex;
+     align-items: center;
+     gap: 8px; /* Increase gap slightly */
+     overflow: hidden;
+     white-space: nowrap;
+}
+
+.mapping-icon {
+    /* margin-right: 5px; */ /* Handled by parent gap */
+    flex-shrink: 0;
+    font-size: 16px; /* Larger icon */
+    opacity: 0.9;
+    color: var(--cf-text-secondary); /* Muted icon color */
+}
+
+.mapping-name {
+    font-weight: 500; /* Match command label weight */
+    font-size: 14px; /* Match command label size */
+    color: var(--cf-text-primary); /* Ensure color */
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.mapping-arrow {
+    margin: 0 10px;
+    font-size: 16px;
+    color: var(--cf-text-muted);
+    flex-shrink: 0;
+}
+
+.mapping-type-badge {
+    padding: 3px 7px; /* Slightly larger padding */
+    background-color: var(--cf-bg-tertiary); /* Slightly darker badge */
+    border: 1px solid var(--cf-border-light); /* Add border */
+    border-radius: 3px;
+    font-size: 11px; /* Keep small */
+    margin-left: 10px;
+    flex-shrink: 0;
+    color: var(--cf-text-secondary); /* Muted text */
+    font-weight: 500;
+}
+
+.mapping-actions {
+    display: flex;
+    margin-left: auto;
+    padding-left: 15px;
+    gap: 6px; /* Slightly more gap */
+    flex-shrink: 0;
+}
+
+/* Make buttons look like command map button */
+.mapping-edit,
+.mapping-delete {
+    /* Base style similar to .command-map-btn */
+    padding: 5px 10px;
+    background-color: var(--cf-bg-secondary);
+    border: 1px solid var(--cf-border-light);
+    color: var(--cf-text-secondary);
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+/* UPDATED HOVER: Match command map button hover */
+.mapping-edit:hover,
+.mapping-delete:hover {
+    background-color: var(--cf-brand-primary); /* Orange brand color */
+    border-color: var(--cf-brand-primary);
+    color: white;
+}
+
+.mapping-empty-message,
+.no-mappings-message { /* Combined empty message styles */
+    color: var(--cf-text-muted);
+    font-style: italic;
+    text-align: center;
+    padding: 20px; /* Increased padding */
+    font-size: 14px;
+    background-color: var(--cf-bg-secondary); /* Added background */
+    border: 1px dashed var(--cf-border-color); /* Added border */
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+/* Inside dialog, make items more compact */
+.controller-mapping-existing-content .mapping-item,
+.controller-mapping-existing-content .controller-mapping-component {
+    padding: 5px;
+    font-size: 12px;
+}
+
+/* Mapping Info */
+.mapping-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Inside dialog, make info more compact */
+.controller-mapping-existing-content .mapping-info {
+    gap: 2px;
+}
+
+/* Buttons */
+.mapping-edit-btn,
+.mapping-delete-btn {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: var(--cf-accent-blue-dark);
+    color: white;
+}
+
+/* Inside dialog, make buttons smaller */
+.controller-mapping-existing-content .mapping-edit-btn,
+.controller-mapping-existing-content .mapping-delete-btn,
+.controller-mapping-existing-content .mapping-edit,
+.controller-mapping-existing-content .mapping-delete {
+    padding: 2px 6px;
+    font-size: 11px;
+}
+
+.mapping-delete-btn {
+    background-color: var(--cf-accent-red-dark);
+}
+
+/* Error State */
+.mapping-error {
+    color: var(--cf-status-error);
+    padding: 8px;
+    background-color: rgba(255, 107, 107, 0.1);
+    border-radius: 3px;
+    margin-bottom: 8px;
+}
+
+/* Mapping Editor Dialog */
+.mapping-editor-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--cf-bg-overlay); /* Ensure this is applied */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001; /* Ensure above panel */
+}
+
+/* Apply base dialog styles AND editor specifics */
+.mapping-editor.controller-dialog { 
+    /* Base Dialog Properties (Copied/Verified from dialog.css) */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10001; /* Ensure above panel */
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cf-bg-primary); /* Ensure solid background */
+    border: 1px solid var(--cf-border-color);
+    border-radius: 6px;
+    box-shadow: 0 4px 20px var(--cf-bg-overlay);
+    padding: 0; /* Padding is on inner elements */
+    min-width: 450px; /* Consistent min-width */
+    max-width: 600px; /* Specific max-width */
+    max-height: 90vh;
+    color: var(--cf-text-primary);
+    font-family: var(--cf-brand-font);
+    overflow: hidden; /* Prevent outer scroll */
+}
+
+/* Editor Header (Inherit/Match dialog header) */
+.mapping-editor .controller-dialog-header {
+    /* Styles copied from dialog.css header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, var(--cf-bg-tertiary), var(--cf-brand-primary) 250%);
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--cf-border-color);
+    border-radius: 6px 6px 0 0;
+    flex-shrink: 0;
+}
+.mapping-editor .controller-dialog-header h3 {
+    margin: 0;
+    font-family: var(--cf-brand-font);
+    font-weight: 600;
+    font-size: 18px; /* Editor title size */
+    color: var(--cf-text-primary);
+}
+
+/* Editor Close Button (Inherit/Match dialog close) */
+.mapping-editor .controller-dialog-close {
+    /* Styles copied from dialog.css close */
+    background: none; border: none; font-size: 24px; cursor: pointer;
+    color: var(--cf-text-muted); width: 30px; height: 30px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s; border-radius: 4px;
+}
+.mapping-editor .controller-dialog-close:hover {
+    color: var(--cf-text-primary); background: rgba(255, 255, 255, 0.1);
+}
+
+/* Editor Content Area (Inherit/Match dialog content) */
+.mapping-editor .controller-dialog-content {
+    padding: 20px;
+    overflow-y: auto; /* Allow content scroll */
+    flex-grow: 1;
+}
+
+/* Editor Footer/Actions (Inherit/Match dialog buttons container) */
+.mapping-editor .controller-mapping-buttons {
+    /* Styles copied from dialog.css buttons container */
+    display: flex; justify-content: space-between; gap: 15px;
+    margin-top: 15px; /* Space above */
+    padding: 20px; /* Consistent padding */
+    border-top: 1px solid var(--cf-border-light);
+    flex-shrink: 0;
+}
+/* Ensure editor buttons inherit base styles */
+.mapping-editor .controller-cancel-button,
+.mapping-editor .controller-map-button {
+    /* Styles copied from dialog.css buttons */
+     flex: 1; padding: 12px; border: none; border-radius: 4px;
+     cursor: pointer; color: white; font-family: var(--cf-brand-font);
+     font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+     transition: all 0.2s; font-size: 14px;
+}
+.mapping-editor .controller-cancel-button {
+    background-color: var(--cf-bg-secondary); flex: 1;
+    border: 1px solid var(--cf-border-color); color: var(--cf-text-primary);
+}
+.mapping-editor .controller-cancel-button:hover {
+    background-color: var(--cf-bg-hover); border-color: var(--cf-text-secondary);
+}
+.mapping-editor .controller-map-button {
+    background-color: var(--cf-brand-primary); flex: 2;
+}
+.mapping-editor .controller-map-button:hover:not(:disabled) {
+    background-color: var(--cf-brand-primary-dark);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.mapping-editor .controller-map-button:disabled {
+    opacity: 0.5; cursor: not-allowed; background-color: var(--cf-brand-primary);
+}
+
+/* Scrollbars - Applying original styles */
+.mapping-list::-webkit-scrollbar,
+.mapping-editor::-webkit-scrollbar { /* Add scrollbar to editor */
+    width: 6px;
+}
+.mapping-list::-webkit-scrollbar-track,
+.mapping-editor::-webkit-scrollbar-track {
+     background: var(--cf-bg-primary);
+     border-radius: 3px;
+}
+.mapping-list::-webkit-scrollbar-thumb,
+.mapping-editor::-webkit-scrollbar-thumb {
+    background-color: var(--cf-border-color);
+    border-radius: 3px;
+}
+.mapping-list::-webkit-scrollbar-thumb:hover,
+.mapping-editor::-webkit-scrollbar-thumb:hover {
+    background-color: var(--cf-text-muted);
+}
+.mapping-list,
+.mapping-editor {
+    scrollbar-width: thin;
+    scrollbar-color: var(--cf-border-color) var(--cf-bg-primary);
+}

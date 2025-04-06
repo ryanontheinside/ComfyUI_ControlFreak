@@ -1,0 +1,32 @@
+/* styles/nodeStyles.css - EXACT from original JS */
+
+/* Control Freak node styling */
+.comfy-node.ControlFreak-node .title {
+    background: linear-gradient(90deg, var(--cf-bg-primary), var(--cf-brand-primary) 120%) !important;
+    font-family: var(--cf-brand-font);
+}
+
+.comfy-node.ControlFreak-node .title-text {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.comfy-node.ControlFreak-node .title-text::before {
+    content: "🎮";
+    font-size: 14px;
+}
+
+/* Style specific nodes */
+.comfy-node.ControlFreak-ControllerMapping .body {
+    background-color: rgba(255, 87, 34, 0.1);
+}
+
+.comfy-node.ControlFreak-ControllerInfo .body {
+    background-color: rgba(139, 195, 74, 0.1);
+}
+
+/* Add a subtle border */
+.comfy-node.ControlFreak-node {
+    box-shadow: 0 0 0 1px var(--cf-brand-primary);
+}

@@ -1,0 +1,421 @@
+/* Dialog styles for Control Freak UI */
+
+.controller-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000; /* Ensure it's above other elements */
+    display: block; /* Original display */
+    background-color: var(--cf-bg-primary);
+    border: 1px solid var(--cf-border-color);
+    border-radius: 6px;
+    box-shadow: 0 4px 20px var(--cf-bg-overlay);
+    padding: 0;
+    min-width: 450px;
+    max-width: 650px;
+    max-height: 90vh; /* Allow content scrolling */
+    overflow-y: auto; /* Original overflow */
+    color: var(--cf-text-primary);
+    font-family: var(--cf-brand-font);
+}
+
+.controller-dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, var(--cf-bg-tertiary), var(--cf-brand-primary) 250%);
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--cf-border-color);
+    border-radius: 6px 6px 0 0; /* Match dialog rounding */
+}
+
+.controller-dialog-header h2 {
+    margin: 0;
+    padding: 0;
+    font-family: var(--cf-brand-font);
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--cf-text-primary); /* Ensure header text color */
+}
+
+.controller-dialog-header .cf-logo { /* Assuming this class is used */
+    font-size: 18px;
+}
+
+.controller-dialog-content {
+    padding: 20px;
+}
+
+.cf-dialog-subtitle {
+    color: var(--cf-text-secondary);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.controller-dialog-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--cf-text-muted);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border-radius: 4px;
+}
+
+.controller-dialog-close:hover {
+    color: var(--cf-text-primary);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Specific styles for mapping editor dialog */
+.mapping-editor-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mapping-editor {
+    /* Uses controller-dialog class, inherits most styles */
+    max-width: 480px;
+}
+
+.mapping-editor-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--cf-text-primary);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.mapping-editor-info {
+    background-color: var(--cf-bg-secondary);
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid var(--cf-border-color);
+    color: var(--cf-text-secondary);
+}
+
+.mapping-editor-field {
+    margin-bottom: 16px;
+}
+
+.mapping-editor-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--cf-brand-primary);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.mapping-editor-field select,
+.mapping-editor-field input[type="number"],
+.mapping-editor-field input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: var(--cf-bg-secondary);
+    border: 1px solid var(--cf-border-color);
+    color: var(--cf-text-primary);
+    font-family: var(--cf-brand-font);
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.mapping-editor-field.invert-field {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.mapping-editor-field.invert-field input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.mapping-type-select {
+    /* Inherit from controller-mapping-type-select */
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: var(--cf-bg-secondary);
+    border: 1px solid var(--cf-border-color);
+    color: var(--cf-text-primary);
+    font-family: var(--cf-brand-font);
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Fix for edit dialog button styling */
+.mapping-editor .controller-mapping-buttons {
+    padding: 0 20px 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.mapping-editor .controller-map-button,
+.mapping-editor .controller-cancel-button {
+    flex: 1;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mapping-editor .controller-map-button {
+    background-color: var(--cf-brand-primary);
+    color: white;
+    border: none;
+}
+
+.mapping-editor .controller-cancel-button {
+    background-color: var(--cf-bg-secondary);
+    color: var(--cf-text-primary);
+    border: 1px solid var(--cf-border-color);
+}
+
+.controller-mapping-target,
+.controller-mapping-existing,
+.controller-mapping-input,
+.controller-mapping-type-section {
+    margin-bottom: 20px;
+}
+
+.controller-mapping-target h3,
+.controller-mapping-existing h3,
+.controller-mapping-input h3,
+.controller-mapping-type-section h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: var(--cf-brand-font);
+    font-weight: 600;
+    color: var(--cf-brand-primary);
+    font-size: 16px;
+    border-bottom: 1px solid var(--cf-border-light);
+    padding-bottom: 6px;
+}
+
+.controller-mapping-target-info,
+.controller-mapping-existing-content,
+.controller-mapping-input-list {
+    padding: 12px;
+    background-color: var(--cf-bg-overlay-light);
+    border-radius: 4px;
+    border: 1px solid var(--cf-border-light);
+    font-size: 14px; /* Ensure consistent font size */
+}
+
+.controller-mapping-existing-content,
+.controller-mapping-input-list {
+    max-height: 150px; /* Limit height */
+    overflow-y: auto; /* Add scrollbar */
+}
+
+.controller-mapping-instruction {
+    text-align: center;
+    color: var(--cf-text-muted);
+    padding: 20px 0;
+    font-style: italic;
+    font-size: 14px;
+}
+
+/* Visibility classes (usually better handled by adding/removing classes in JS) */
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
+}
+
+/* Form elements */
+.controller-mapping-type-container {
+    margin-bottom: 10px;
+}
+
+.controller-mapping-type-select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: var(--cf-bg-secondary);
+    border: 1px solid var(--cf-border-color);
+    color: var(--cf-text-primary);
+    font-family: var(--cf-brand-font);
+    font-size: 14px;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.controller-mapping-type-select option {
+    padding: 8px;
+    background-color: var(--cf-bg-secondary); /* Ensure dropdown options match */
+    color: var(--cf-text-primary);
+}
+
+.controller-mapping-range {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.controller-mapping-range > div {
+    flex: 1;
+}
+
+.controller-mapping-range label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: var(--cf-text-secondary);
+}
+
+.controller-mapping-min,
+.controller-mapping-max,
+.controller-mapping-step {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: var(--cf-bg-secondary);
+    border: 1px solid var(--cf-border-color);
+    color: var(--cf-text-primary);
+    font-family: var(--cf-brand-font);
+    font-size: 14px;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+/* Button styles */
+.controller-mapping-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 10px; /* Add some bottom margin */
+    padding: 0 20px 20px 20px; /* Add padding matching content */
+    flex-shrink: 0; /* Prevent buttons shrinking */
+}
+
+.controller-cancel-button,
+.controller-map-button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    font-family: var(--cf-brand-font);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s;
+    font-size: 14px; /* Ensure consistent font size */
+}
+
+.controller-cancel-button {
+    background-color: var(--cf-bg-secondary);
+    flex: 1; /* Equal width initially */
+    border: 1px solid var(--cf-border-color);
+    color: var(--cf-text-primary);
+}
+
+.controller-cancel-button:hover {
+    background-color: var(--cf-bg-hover);
+    border-color: var(--cf-text-secondary); /* Subtle border change */
+}
+
+.controller-map-button {
+    background-color: var(--cf-brand-primary);
+    flex: 2; /* Make map button wider */
+}
+
+.controller-map-button:hover:not(:disabled) { /* Only hover effect when enabled */
+    background-color: var(--cf-brand-primary-dark); /* Darker primary */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.controller-map-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: var(--cf-brand-primary); /* Keep base color */
+}
+
+/* Specific button styling within dialog (might override general cf-button) */
+.controller-dialog button {
+    background-color: var(--cf-bg-secondary);
+    border: 1px solid var(--cf-border-color);
+    color: var(--cf-text-primary);
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--cf-brand-font);
+    transition: all 0.2s;
+    font-size: 14px; /* Consistent size */
+}
+
+.controller-dialog button:hover:not(:disabled) {
+     background-color: var(--cf-bg-hover);
+     border-color: var(--cf-brand-primary); /* Highlight border on hover */
+}
+
+/* Scrollbar styling for dialog content */
+.controller-dialog-content::-webkit-scrollbar {
+    width: 8px;
+}
+.controller-dialog-content::-webkit-scrollbar-track {
+    background: var(--cf-bg-primary);
+    border-radius: 4px;
+}
+.controller-dialog-content::-webkit-scrollbar-thumb {
+    background-color: var(--cf-bg-tertiary);
+    border-radius: 4px;
+    border: 2px solid var(--cf-bg-primary);
+}
+.controller-dialog-content::-webkit-scrollbar-thumb:hover {
+    background-color: var(--cf-border-color);
+}
+.controller-dialog-content {
+    scrollbar-width: thin;
+    scrollbar-color: var(--cf-bg-tertiary) var(--cf-bg-primary);
+}
+
+/* Ensure input lists also get scrollbar styles */
+.controller-mapping-existing-content::-webkit-scrollbar,
+.controller-mapping-input-list::-webkit-scrollbar {
+    width: 6px; /* Make slightly smaller for lists */
+}
+.controller-mapping-existing-content::-webkit-scrollbar-track,
+.controller-mapping-input-list::-webkit-scrollbar-track {
+     background: var(--cf-bg-overlay-light);
+     border-radius: 3px;
+}
+.controller-mapping-existing-content::-webkit-scrollbar-thumb,
+.controller-mapping-input-list::-webkit-scrollbar-thumb {
+    background-color: var(--cf-border-light);
+    border-radius: 3px;
+}
+.controller-mapping-existing-content::-webkit-scrollbar-thumb:hover,
+.controller-mapping-input-list::-webkit-scrollbar-thumb:hover {
+    background-color: var(--cf-text-muted);
+}
+.controller-mapping-existing-content,
+.controller-mapping-input-list {
+    scrollbar-width: thin;
+     scrollbar-color: var(--cf-border-light) var(--cf-bg-overlay-light);
+}

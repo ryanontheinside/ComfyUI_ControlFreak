@@ -1,0 +1,15 @@
+[project]
+name = "comfyui_controlfreak"
+description = "Map MIDI controllers, gamepads, and other devices to ComfyUI parameters"
+version = "0.0.1"
+license = {file = "LICENSE"}
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/ryanontheinside/ComfyUI_ControlFreak"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "ryanontheinside"
+DisplayName = "ComfyUI_ControlFreak"
+Icon = "🎛️" 
